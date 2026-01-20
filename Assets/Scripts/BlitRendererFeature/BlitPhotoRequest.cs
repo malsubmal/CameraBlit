@@ -4,40 +4,43 @@ using UnityEngine;
 using Utils;
 using ZeroMessenger;
 
-[Serializable]
-public struct BlitPhotoRequest : IDefaultable<BlitPhotoRequest>
+namespace BlitRendererFeature.CommonPayload
 {
-    private RenderTexture _renderTexture;
-    private UniTaskCompletionSource<Texture2D> _noticeFinishBlit;
 
-    public RenderTexture RenderTexture => _renderTexture;
-    public UniTaskCompletionSource<Texture2D> FinishHandle => _noticeFinishBlit;
-    
-    public BlitPhotoRequest(RenderTexture renderTexture)
+    [Serializable]
+    public struct BlitPhotoRequest : IDefaultable<BlitPhotoRequest>
     {
-        _renderTexture = renderTexture;
-        _noticeFinishBlit = new UniTaskCompletionSource<Texture2D>();
-    }
+        private RenderTexture _renderTexture;
+        private UniTaskCompletionSource<Texture2D> _noticeFinishBlit;
 
-    public void SubmitRequest()
-    {
-        MessageBroker<BlitPhotoRequest>.Default.Publish(this);
-    }
+        public RenderTexture RenderTexture => _renderTexture;
+        public UniTaskCompletionSource<Texture2D> FinishHandle => _noticeFinishBlit;
 
-    public void SetCompleteHandle(Texture2D tex)
-    {
-        Debug.Log("Set Finish");
-        _noticeFinishBlit.TrySetResult(tex);
-    }
+        public BlitPhotoRequest(RenderTexture renderTexture)
+        {
+            _renderTexture = renderTexture;
+            _noticeFinishBlit = new UniTaskCompletionSource<Texture2D>();
+        }
 
-    public bool IsDefault()
-    {
-        return _renderTexture is null && _noticeFinishBlit == default;
-    }
+        public void SubmitRequest()
+        {
+            MessageBroker<BlitPhotoRequest>.Default.Publish(this);
+        }
 
-    public void SetDefault()
-    {
-        _renderTexture = null;
-        _noticeFinishBlit = default;
+        public void SetCompleteHandle(Texture2D tex)
+        {
+            _noticeFinishBlit.TrySetResult(tex);
+        }
+
+        public bool IsDefault()
+        {
+            return _renderTexture is null && _noticeFinishBlit == default;
+        }
+
+        public void SetDefault()
+        {
+            _renderTexture = null;
+            _noticeFinishBlit = default;
+        }
     }
 }

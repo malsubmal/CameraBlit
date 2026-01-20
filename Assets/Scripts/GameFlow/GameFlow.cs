@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using BaseGameEntity;
+using CameraFunction.CommonPayload;
 using UnityEngine;
 using Level;
-using UnityEngine.Serialization;
 using Utils;
 using ZeroMessenger;
 
@@ -108,23 +109,7 @@ namespace GameFlow
 
         public LevelConfig LevelConfig => _levelConfig;
     }
-    
-    [Serializable]
-    public struct NoticePhotoCapture
-    {
-        private GamePhotoData _imageMeta;
-        private RenderTexture _imageTexture;
 
-        public NoticePhotoCapture(GamePhotoData imageMeta, RenderTexture imageTexture)
-        {
-            _imageMeta = imageMeta;
-            _imageTexture = imageTexture;
-        }
-
-        public GamePhotoData ImageMeta => _imageMeta;
-        public RenderTexture ImageTexture => _imageTexture;
-    }
-    
 
     [Serializable]
     public class LevelPhotoQuestController : IDisposable
@@ -152,7 +137,7 @@ namespace GameFlow
 
             _levelPhoto = gamePhotoData;
             
-            _messageSubscription = MessageBroker<NoticePhotoCapture>.Default.Subscribe(this, (capture, controller) =>
+            _messageSubscription = MessageBroker<NoticePhotoCapturePayload>.Default.Subscribe(this, (capture, controller) =>
             {
                 var isMatch = false;
 

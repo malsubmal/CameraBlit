@@ -2,6 +2,7 @@
 using System.Threading;
 using AYellowpaper.SerializedCollections;
 using Cysharp.Threading.Tasks;
+using BaseGameEntity;
 using Level;
 using UnityEngine;
 using Utils;

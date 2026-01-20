@@ -1,4 +1,6 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using CameraFunction;
+using Cysharp.Threading.Tasks;
+using MovementFunction;
 using UnityEngine;
 
 namespace PlayerController

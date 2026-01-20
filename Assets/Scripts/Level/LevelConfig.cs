@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using BaseGameEntity;
 using Level;
 using PhotoAlbum;
 using UnityEngine;

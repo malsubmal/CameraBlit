@@ -4,7 +4,6 @@ using System.Threading;
 using AYellowpaper.SerializedCollections;
 using Cysharp.Threading.Tasks;
 using ImageProcess;
-using ResourceLoad;
 using UnityEngine;
 using Utils;
 
@@ -14,7 +13,6 @@ namespace PhotoAlbum
     public class PhotoAlbum : ScriptableObject
     {
         [SerializeField] private SerializedDictionary<SerializableId, Texture2D> _photoTextureDictionary;
-        private MiniResourceDirectory _miniResourceDirectory; //turn to interface, maybe
         
         public UniTask<Texture2D> LoadPhoto(SerializableId photoId)
         {

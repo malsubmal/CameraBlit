@@ -2,7 +2,7 @@
 using UnityEngine;
 using Utils;
 
-namespace PlayerController
+namespace MovementFunction
 {
     [Serializable]
     public class KineticController
@@ -76,22 +76,4 @@ namespace PlayerController
         }
     }
 
-    // public struct CameraFunctionInput : IDefaultable<CameraFunctionInput>
-    // {
-    //     private bool _takePic;
-    //
-    //     public CameraFunctionInput(bool takePic)
-    //     {
-    //         _takePic = takePic;
-    //     }
-    //
-    //     public bool TakePic => _takePic;
-    //     
-    //     public bool IsDefault() => !_takePic;
-    //
-    //     public void SetDefault()
-    //     {
-    //         _takePic = false;
-    //     }
-    // }
 }

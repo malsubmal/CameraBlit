@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class SubjectHost : MonoBehaviour
+namespace Level
 {
-    [SerializeField] private Transform _hostTransform; //
-    private ITargetSubject _targetSubject;
-
-    public void HostSubject(ITargetSubject targetSubject)
+    public class SubjectHost : MonoBehaviour
     {
-        //take transform
-        targetSubject.SubjectTransform.SetParent(_hostTransform);
-        targetSubject.SubjectTransform.localScale = Vector3.one;
-    }
+        [SerializeField] private Transform _hostTransform; //
+        private ITargetSubject _targetSubject;
 
+        public void HostSubject(ITargetSubject targetSubject)
+        {
+            //take transform
+            targetSubject.SubjectTransform.SetParent(_hostTransform);
+            targetSubject.SubjectTransform.localScale = Vector3.one;
+        }
+
+    }
 }

@@ -1,13 +1,11 @@
-﻿using UnityEngine;
+﻿using GameFlow;
+using UnityEngine;
 using ZeroMessenger;
 
-namespace GameFlow
+public class LoadSampleLevel : MonoBehaviour
 {
-    public class LoadSampleLevel : MonoBehaviour
+    private void Awake()
     {
-        private void Awake()
-        {
-            MessageBroker<RequestLevel>.Default.Publish(new RequestLevel());
-        }
+        MessageBroker<RequestLevel>.Default.Publish(new RequestLevel());
     }
 }
