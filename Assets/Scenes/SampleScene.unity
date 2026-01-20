@@ -1239,7 +1239,7 @@ MonoBehaviour:
     _levelCollection: {fileID: 11400000, guid: 9ea77c25638251c40b0c1a9a40cc1285, type: 2}
   _subjectHost: {fileID: 454181810}
   _levelPhotoQuestController:
-    _toleranceValue: 1
+    _toleranceValue: 2
 --- !u!4 &1722894295
 Transform:
   m_ObjectHideFlags: 0
@@ -1317,7 +1317,6 @@ MonoBehaviour:
     _id:
       _id: 0
   _saveImagePath: D:\CameraGame\Assets\RawResources
-  _immediateTexture: {fileID: 0}
 --- !u!4 &1801762296
 Transform:
   m_ObjectHideFlags: 0

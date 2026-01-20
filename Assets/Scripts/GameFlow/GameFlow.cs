@@ -45,6 +45,7 @@ namespace GameFlow
             if (isCanceled)
             {
                 Debug.LogError("Error Loading Level");
+                return;
             }
             
             _subjectHost.HostSubject(subject);
@@ -72,7 +73,8 @@ namespace GameFlow
 
         private void OnLevelRequested(RequestLevel req)
         {
-            InitializeLevel(req.Levelid);
+            Debug.Log("req");
+            InitializeLevel(new SerializableId());
         }
     }
 
